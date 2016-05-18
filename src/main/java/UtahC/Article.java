@@ -12,7 +12,7 @@ public class Article extends HtmlPage {
     int id;
     String author;
     String title;
-    Date date;
+    String date;
     String ip;
     String content;//僅含本文
 

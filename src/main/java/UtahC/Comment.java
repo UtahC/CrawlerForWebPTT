@@ -7,7 +7,7 @@ import java.util.Date;
  */
 public class Comment {
     CommentStats stats;
-    Date date;
+    String date;
     String content;
     String userId;
 }
