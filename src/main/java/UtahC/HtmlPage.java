@@ -2,10 +2,9 @@ package UtahC;
 
 import org.apache.commons.io.IOUtils;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
-import java.net.URLConnection;
+import java.io.*;
+import java.net.*;
+import java.util.*;
 
 /**
  * Created by UtahC on 2016/5/18.
@@ -17,18 +16,20 @@ public abstract class HtmlPage {
         this.url = url;
     }
 
-    public String getContent() {
-        String encoding = "UTF-8";
-        String body = "";
+    public ArrayList<String> getContent() {
+        ArrayList list = null;
         try {
+            final String encoding = "UTF-8";
             URLConnection conn = url.openConnection();
             InputStream in = conn.getInputStream();
-            body = IOUtils.toString(in, encoding);
+            String body = IOUtils.toString(in, encoding);
+            String[] sLine = body.split("\n");
+            list = new ArrayList<String>(Arrays.asList(sLine));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return body;
+        return list;
     }
 
-    abstract String parseContent(String Content);
+    abstract void parseContent();
 }
