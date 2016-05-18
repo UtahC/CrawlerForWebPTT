@@ -12,13 +12,17 @@ public class Comment {
     String userId;
 
     public Comment(String content) {
-        String statsString = StringUtils.substringBetween(content, "<span class=\"f1 hl push-tag\">",  " </span>");
-        if (statsString == "推")
-            stats = CommentStats.Good;
-        else if (statsString == "→")
-            stats = CommentStats.None;
-        else if (statsString == "噓")
-            stats = CommentStats.Bad;
+        String statsString = StringUtils.substringBetween(content, "hl push-tag\">",  " </span>");
+        if (statsString != null){
+            if (statsString.contains("推"))
+                stats = CommentStats.Good;
+            else if (statsString.contains("→"))
+                stats = CommentStats.None;
+            else if (statsString.contains("噓"))
+                stats = CommentStats.Bad;
+            else
+                stats = CommentStats.Unknow;
+        }
         else
             stats = CommentStats.Unknow;
         userId = StringUtils.substringBetween(content, "<span class=\"f3 hl push-userid\">", "</span>").replace(" ", "");
