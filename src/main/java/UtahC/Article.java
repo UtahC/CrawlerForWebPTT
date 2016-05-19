@@ -8,7 +8,7 @@ import java.util.*;
  * Created by UtahC on 2016/5/18.
  */
 public class Article extends HtmlPage {
-    int id;
+    String id;
     String author;
     String title;
     String time;

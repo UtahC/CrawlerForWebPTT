@@ -45,8 +45,10 @@ public class Board extends HtmlPage{
         for (; nowIndex < contentList.size(); nowIndex++) {
             if (contentList.get(nowIndex).contains("<a href=\"") && contentList.get(nowIndex).contains("</a>")) {
                 String urlString = "https://www.ptt.cc" + StringUtils.substringBetween(contentList.get(nowIndex), "<a href=\"", "\">");
+
                 try {
                     Article article = new Article(new URL(urlString));
+                    article.id = StringUtils.substringBetween(contentList.get(nowIndex), "https://www.ptt.cc/bbs/LoL/", ".html");
                     articleList.add(article);
                 }
                 catch (MalformedURLException e) {
