@@ -1,6 +1,6 @@
 # CrawlerForWebPTT  #
 ## Summary ##
-It is used to visit web PTT and convert webpages into json formatted data.
+A tool used to convert the detail of specified article on PTT into json formatted data.
 ## Library ##
 [Junit / 3.8.1](http://mvnrepository.com/artifact/junit/junit/3.8.1 "Junit 3.8.1")  
 [Commons IO / 2.5](http://mvnrepository.com/artifact/commons-io/commons-io/2.5)  
